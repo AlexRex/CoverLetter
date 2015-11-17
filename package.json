@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Scroll property controlled with the mobile gyroscope",
   "main": "app.js",
+  "start": "node app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
