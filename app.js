@@ -3,7 +3,9 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var open = require('open');
 
-server.listen(2000);
+server.listen(process.env.PORT || 2000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 open('http://localhost:2000');
 
