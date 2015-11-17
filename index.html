@@ -1,0 +1,29 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket = io.connect('http://192.168.1.145:2000');
+
+	socket.on('getAccel', function (data) {
+	//console.log(data);
+		var info = {
+			x: Math.round(data.data.alpha),
+			y: Math.round(data.data.beta),
+			z: Math.round(data.data.gamma)
+		};
+		console.log(info.y);
+
+		window.scrollBy(0,info.y/5);
+
+		//document.getElementById("body").style.background = makecolor(info.x, info.y, info.z);
+	});
+
+
+
+</script>
+<body id="body" style="min-height: 2000px;">
+	asdfasd
+
+	<div style="position: absolute; bottom: 0;">
+		
+		asf
+	</div>
+</body>

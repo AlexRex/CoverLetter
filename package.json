@@ -1,0 +1,15 @@
+{
+  "name": "socket-scroll-window",
+  "version": "0.0.1",
+  "description": "Scroll property controlled with the mobile gyroscope",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Torres",
+  "dependencies": {
+    "express": "^4.13.3",
+    "open": "0.0.5",
+    "socket.io": "^1.3.7"
+  }
+}
