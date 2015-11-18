@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alex Torres - Cover Letter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel=stylesheet href="/static/style.css">
+
+</head>
+<body>
+	<div class="alert alert-info" role="alert">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<strong>Hey ya!</strong> Would you like to control this website with your mobile? <a href="#" onclick="$('#qrModal').modal('show'); $(this).alert('close');">Click here</a>.
+	</div>
+	<section id="introduction">
+		<h1>Hey!, I am Alex Torres</h1>
+		<p>I created this interactive cover letter concerning my application for an internship as a Frontend Developer in <span class="company-name">Delivery Hero</span>.</p>
+	</section>
+
+	<section id="about-me">
+		<h1>This is me</h1>
+		<p>I am a Spanish student enrolled in the Multimedia Engineering Bachelor in the University of Alicante, Spain.</p>
+		<div id="UAMapWrapper">
+			<h2>Actually, here:</h2>
+			<div id="UAMap"></div>
+		</div>
+		<br>
+		<p>In this degree I studied a remarkably wide range of areas: </p>
+		<br>
+		<ul class="list-inline row">
+		    <li id="csList" class="col-sm-2">
+		    	<object type="image/svg+xml" data="/static/images/CS.svg" class="iconStudy"></object><br><br>
+		    	Pure computer science
+		    </li>
+		    <li class="col-sm-2">
+		    	<object type="image/svg+xml" data="/static/images/nodejs.svg" class="iconStudy"></object><br><br>
+		    	New technologies
+	    	</li>
+		    <li class="col-sm-2">
+		    	<object type="image/svg+xml" data="/static/images/glasses.svg" class="iconStudy"></object><br><br>
+
+		    	Design
+		    </li>
+		    <li class="col-sm-2">
+		    	<object type="image/svg+xml" data="/static/images/soundDev.svg" class="iconStudy"></object><br><br>
+		    	Sound
+		    </li>
+		    <li class="col-sm-2">
+		    	<object type="image/svg+xml" data="/static/images/video.svg" class="iconStudy"></object><br><br>
+		    	Video
+	    	</li>
+		    <li class="col-sm-2">
+		    	<object type="image/svg+xml" data="/static/images/games.svg" class="iconStudy"></object><br><br>
+		    	Games
+	    	</li>
+		</ul>
+	</section>
+
+
+	<div class="modal fade" id="qrModal">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Hey! Look at this!</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Scan this QR code with your mobile: </p>
+	        <img id="qrCode"></img>
+	        <p id="linkCode"></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqRQeHrY8CHjwhQa-IzB9b-QTzJT5jgP8&callback=initMap">
+</script>	
+<script src="/socket.io/socket.io.js"></script>
+<script src="/static/main.js"></script>
+
+</html>

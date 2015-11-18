@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Controller</title>
+        <link rel=stylesheet href="/static/controller/style.css">
+    </head>
+    <body>
+        <form id="form" action="controller" onsubmit="submittedForm(id)">
+            <input type="number" name="id">
+
+            <button type="submit" value="Send" id="button">Send</button>
+        </form>
+        
+        <div id="instructions">
+          <p>Now move your mobile 
+
+          </p>
+
+          <p id="controllers">
+            &#x1F3AE;
+            &#x1F3AE;
+            &#x1F3AE;
+          </p>
+        </div>
+    </body>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/controller/controller.js"></script>
+
+
+</html>

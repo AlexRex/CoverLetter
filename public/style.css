@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,300italic,300);
+
+body, html{
+	padding, margin: 0;
+	height: 100%;
+	width: 100%;
+	background: #3498db;
+	text-align: center;
+	font-family: 'Open Sans';
+}
+
+section{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	width: 100%;
+	color: white;
+	
+}
+
+h1{
+	font-size: 6vw;
+	font-weight: 600;
+}
+
+h2{
+	font-size: 3vw;
+}
+
+p{
+	font-size: 1.5vw;
+	font-weight: 300;
+}
+
+
+.alert{
+	border-radius: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#qrModal{
+	text-align: center;
+	font-size: 1.2em;
+}
+
+/* *************************************
+ *            Introduction             *
+ * *********************************** */
+
+#introduction{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background: #3498db;
+	vertical-align: middle;
+}
+
+.company-name{
+	color: #D61F26;
+	font-weight: 600;
+}
+
+
+/* *************************************
+ *              About-me               *
+ * *********************************** */
+
+#about-me{
+	width: 100%;
+	min-height: 100%;
+	background: #34495e;
+}
+
+#UAMapWrapper{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#UAMap { 
+	margin: 0 auto;
+	height: 40vh;
+	width: 35vw;
+	max-height: 500px;
+	max-width: 500px;
+	border: 3px solid white;
+}
+
+.list-inline li{
+	font-size: 1.2vw;
+}
+
+.iconStudy{
+	border-radius: 50%;
+	border: 3px solid #86C0CE;
+	width: 10vw;
+}
