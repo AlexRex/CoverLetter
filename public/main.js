@@ -1,8 +1,8 @@
 	
-  	var thisUrl = "http://192.168.1.145:2000/";
+  	var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+  	//"http://192.168.1.145:2000/";
 
-	//var socket = io.connect('https://protected-crag-6460.herokuapp.com/');
-  	var socket = io.connect('http://192.168.1.145:2000');
+	var socket = io.connect(thisUrl);
   	
   	var thisId = ( Math.random() * 100 ) | 0;
   	socket.on('connect', function(){
