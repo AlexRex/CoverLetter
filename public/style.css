@@ -10,11 +10,11 @@ body, html{
 }
 
 section{
-	padding-top: 100px;
 	padding-bottom: 100px;
+	padding-top: 100px;
 	width: 100%;
 	color: white;
-	
+
 }
 
 h1{
@@ -27,7 +27,7 @@ h2{
 }
 
 p{
-	font-size: 1.5vw;
+	font-size: 1.5em;
 	font-weight: 300;
 }
 
@@ -48,9 +48,7 @@ p{
  * *********************************** */
 
 #introduction{
-	padding: 0;
 	margin: 0;
-	height: 100%;
 	background: #3498db;
 	vertical-align: middle;
 }
@@ -66,8 +64,8 @@ p{
  * *********************************** */
 
 #about-me{
+	margin: 0;
 	width: 100%;
-	min-height: 100%;
 	background: #34495e;
 }
 
@@ -82,15 +80,24 @@ p{
 	width: 35vw;
 	max-height: 500px;
 	max-width: 500px;
-	border: 3px solid white;
+	border: 3px solid #86C0CE;
+}
+
+.list-inline{
+	max-width: 100%;
 }
 
 .list-inline li{
-	font-size: 1.2vw;
+	font-size: 1.4vw;
 }
 
 .iconStudy{
 	border-radius: 50%;
 	border: 3px solid #86C0CE;
 	width: 10vw;
+}
+
+
+#today{
+	background: #27ae60;
 }
