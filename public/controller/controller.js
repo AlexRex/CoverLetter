@@ -1,5 +1,5 @@
-var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-//"http://192.168.1.145:2000/";
+//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+var thisUrl = "http://192.168.1.145:2000/";
 
 var socket = io.connect(thisUrl);
 
@@ -14,17 +14,25 @@ socket.on('connect', function(){
     });
 });
 
+function motion(event){
+    document.getElementById('instructions').innerHTML = 'Working';
+
+    if(connected){
+        socket.emit('accel', event);
+    }
+}
+
 
 if(window.DeviceOrientationEvent){
     window.addEventListener("deviceorientation", motion, false);
+
 }else{
+    document.getElementById('instructions').innerHTML = 'Not Working';
+
     console.log("DeviceOrientationEvent is not supported");
 }
 
-function motion(event){
-    if(connected)
-    socket.emit('accel', event);
-}
+
 function getURLParameter(name) {
     return decodeURI(
         (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]

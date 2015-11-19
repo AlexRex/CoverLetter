@@ -1,12 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,300italic,300);
 
 body, html{
-	padding, margin: 0;
-	height: 100%;
+	padding: 0;
+	margin: 0;
 	width: 100%;
 	background: #3498db;
 	text-align: center;
 	font-family: 'Open Sans';
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 section{
@@ -14,7 +16,17 @@ section{
 	padding-top: 100px;
 	width: 100%;
 	color: white;
+	padding-left: 30px;
+	padding-right: 30px;
+}
 
+section a{
+	color: white;
+	font-weight: 600;
+}
+
+section a:hover{
+	color: white;
 }
 
 h1{
@@ -27,7 +39,7 @@ h2{
 }
 
 p{
-	font-size: 1.5em;
+	font-size: 1.4em;
 	font-weight: 300;
 }
 
@@ -49,12 +61,11 @@ p{
 
 #introduction{
 	margin: 0;
-	background: #3498db;
+	background: #d35400;
 	vertical-align: middle;
 }
 
 .company-name{
-	color: #D61F26;
 	font-weight: 600;
 }
 
@@ -76,19 +87,27 @@ p{
 
 #UAMap { 
 	margin: 0 auto;
-	height: 40vh;
-	width: 35vw;
+	height: 300px;
+	width: 500px;
 	max-height: 500px;
 	max-width: 500px;
 	border: 3px solid #86C0CE;
 }
 
+@media (max-width: 560px){
+	#UAMap{
+		width: 260px;
+		height: 280px;
+	}
+}
+
 .list-inline{
 	max-width: 100%;
+
 }
 
 .list-inline li{
-	font-size: 1.4vw;
+	font-size: 1.3em;
 }
 
 .iconStudy{
@@ -98,6 +117,103 @@ p{
 }
 
 
+
+#studyAreas p{
+	bottom: 0;
+	padding-bottom: 80px;
+	font-size: .7em;
+	width: 80%;
+	margin: auto auto;
+	/*border: 1px solid white;
+	border-radius: 50%;*/
+	transform: translate3d(0,10px,0);
+}
+
+
+
+/* *************************************
+ *             What I like             *
+ * *********************************** */
+
+#what-i-like{
+	background: #8e44ad
+}
+
+#githubRepos{
+	margin-top: 50px;
+
+}
+
+.githubCard{
+	width: 100%;
+	height: 280px;
+	background: white;
+	border-radius: 3px;
+	color: #444444;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.githubCard h4{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	color: white;
+	padding: 15px 0px 15px 20px;
+	background: #2C3E50;
+
+}
+
+.githubCard h3{
+	padding: 0px 20px 2px 20px;
+	overflow: hidden;
+	white-space: nowrap; /* Don't forget this one */
+	text-overflow: ellipsis;
+}
+
+.githubCard hr {
+    border-bottom: 1px solid #D8D8D8;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: block;
+}
+
+.githubCard p{
+	color: #808080;
+	font-size: 1.2em;
+    text-align: inherit;
+    padding: 20px 20px 20px 20px;
+    height: 85px;
+}
+
+.githubCard a{
+	color: #808080;
+	font-size: 1.2em;
+    text-align: inherit;
+    padding: 20px 20px 20px 20px;
+    height: 65px;
+}
+
+.githubCard a:hover{
+	color: black;
+}
+/* *************************************
+ *                Today                *
+ * *********************************** */
+
 #today{
 	background: #27ae60;
 }
+
+
+
+/* *************************************
+ *              Bootstrap              *
+ * *********************************** */
+
+
+
+.row-centered {
+    margin: 0 auto;
+     width: 100%;
+}
+

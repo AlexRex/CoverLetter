@@ -47,6 +47,8 @@ io.on('connection', function(socket) {
     socket.on('accel', function(data) {
         //console.log(data);
         //console.log('emitting');
+    	console.log(data);
+        
         io.to(sockId).emit('getAccel', data);
     });
 });

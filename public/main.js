@@ -1,13 +1,13 @@
 	
-  	var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-  	//"http://192.168.1.145:2000/";
+  	//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+  	var thisUrl = "http://192.168.1.145:2000/";
 
 	var socket = io.connect(thisUrl);
   	
   	var thisId = ( Math.random() * 100 ) | 0;
   	socket.on('connect', function(){
   		console.log(thisId);
-  		socket.emit('sendId', 15);
+  		socket.emit('sendId', thisId);
   		document.getElementById('qrCode').src = 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl='+thisUrl+'controller?id='+thisId;
   		document.getElementById('linkCode').innerHTML += 'Or go to the controller page with your mobile <strong style="font-size:22px;">'+thisUrl+'controller</strong> and use this id: <strong style="font-size:22px;">'+thisId+'</strong>';
 
@@ -39,16 +39,10 @@
  //$('#qrModal').modal('show');
 
 
- /* *************************************
-  *                Skrollr                 *
-  * *********************************** */
-
-var s = skrollr.init();
 
  /* *************************************
   *                Maps                 *
   * *********************************** */
-
 
 
 
@@ -78,3 +72,82 @@ function initMap() {
 
      
 
+
+
+
+jQuery.githubUser = function(username, callback) {
+   jQuery.getJSON('https://api.github.com/users/'+username+'/repos?sort=updated&callback=?',callback);
+};
+ 
+jQuery.fn.loadRepositories = function(username) {
+    this.html("<span>Querying GitHub for " + username +"'s repositories...</span>");
+     
+    var target = this;
+    $.githubUser(username, function(data) {
+        var repos = data.data; // JSON Parsing
+        //sortByNumberOfWatchers(repos);    
+     	
+     	var repoLang, repoName, repoDesc, color, card;
+
+     	console.log(repos);
+
+        target.empty();
+     	$(repos.slice(0,8)).each(function(){
+     		if (this.name != (username.toLowerCase()+'.github.com')) {
+     		    switch(this.language){
+     		    	case 'C#': color='#2c3e50';
+	    					break;
+	    			case 'JavaScript': color='#27ae60';
+	    					break;
+					case 'HTML': color='#f39c12';
+							break;
+					case 'C++': color='#c0392b';
+							break;
+					case 'Java': color='#1abc9c';
+							break;
+					default: color='white';
+							break;
+     		    }	
+        		repoLang = this.language;
+        		repoName = this.name;
+        		repoDesc = this.description;
+        		card = '<div class="col-md-3 col-centered">'+
+				    		'<div class="githubCard" >'+
+					    		'<h4 style="background:'+color+';">'+repoLang+'</h4>'+
+					    		'<h3>'+repoName+'</h3>'+
+					    		'<hr>'+
+					    		'<p>'+repoDesc+'</p>'+
+					    		'<a href="'+this.html_url+'">See it in Github</a>'+
+				    		'</div>'+
+        				'</div>';
+
+        		target.append(card);
+     		}
+     	});
+
+        // var list = $('<dl/>');
+        // target.empty().append(list);
+        // $(repos).each(function() {
+        //     if (this.name != (username.toLowerCase()+'.github.com')) {
+        //         list.append('<dt><a href="'+ (this.homepage?this.homepage:this.html_url) +'">' + this.name + '</a> <em>'+(this.language?('('+this.language+')'):'')+'</em></dt>');
+        //         list.append('<dd>' + this.description +'</dd>');
+        //     }
+        // });      
+      });
+      
+    function sortByName(repos) {
+        repos.sort(function(a,b) {
+        return a.name - b.name;
+       });
+    }
+
+    function sortByNumberOfWatchers(repos) {
+        repos.sort(function(a,b) {
+          return b.watchers - a.watchers;
+        });
+      }
+};
+
+$(function() {
+        $("#githubRepos").loadRepositories("AlexRex");
+    });
