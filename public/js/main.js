@@ -18,12 +18,14 @@
   	  if($('#qrModal').hasClass('in')){
  			$('#qrModal').modal('hide');
   	  }
+
+        console.log(data);
   	  	var info = {
   	  		x: Math.round(data.alpha),
   	  		y: Math.round(data.beta),
   	  		z: Math.round(data.gamma)
   	  	};
-  	  	console.log(info);
+  	  	//console.log(info);
 
   	  	window.scrollBy(0,info.y/5);
   	  });
