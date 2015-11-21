@@ -1,5 +1,5 @@
-//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-var thisUrl = "http://192.168.1.145:2000/";
+var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+//var thisUrl = "http://192.168.1.145:2000/";
 
 var socket = io.connect(thisUrl);
 
@@ -15,7 +15,7 @@ socket.on('connect', function(){
 });
 
 function motion(event){
-    document.getElementById('instructions').innerHTML = 'Working';
+    document.getElementById('instructions').innerHTML = event;
 
     if(connected){
         socket.emit('accel', event);
@@ -27,7 +27,7 @@ if(window.DeviceOrientationEvent){
     window.addEventListener("deviceorientation", motion, false);
 
 }else{
-    document.getElementById('instructions').innerHTML = 'Not Working';
+    document.getElementById('instructions').innerHTML = 'This app is not supported in this device.';
 
     console.log("DeviceOrientationEvent is not supported");
 }

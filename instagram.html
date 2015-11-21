@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instagram feed</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+</head>
+<style>
+	body{
+		background: #2980b9;
+	}
+
+	.instagramCard{
+		margin-bottom: 50px;
+
+	}
+
+	.instagramInfo{
+		background: white;
+		color: #808080;
+		text-align: left;
+		font-size: .9em;
+		border-radius: 3px;
+	}
+
+	.instagramInfo p{
+		font-size: 1em;
+		padding: 10px 10px;
+		overflow: hidden;
+		white-space: nowrap; /* Don't forget this one */
+		text-overflow: ellipsis;
+	}
+
+	.instagramInfo a{
+		color: #0A558A;
+	}
+
+	.instagramInfo a:hover{
+		color: #0d3c5f;
+	}
+
+	.instagramCard img{
+		width: 100%;
+		border-top-right-radius: 3px;
+		border-top-left-radius: 3px;
+	}
+
+
+</style>
+<body>
+	<h2>Taking photos</h2>
+	<div id="instafeed" class="row"></div>
+</body>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="./public/js/instafeed.min.js"></script>
+
+
+<script>
+	var feed = new Instafeed({
+	        get: 'user',
+	        userId: 4713071,
+	        limit: 4,
+	        resolution: 'standard_resolution',
+	        accessToken: '4713071.467ede5.916c09eb742248ab99ea0bf7dddac4cd',
+	        template: '<div class="col-lg-3 col-md-6 col-centered instagramCard">'+
+	                    '<div class="instagramInfo">'+
+	                    '<a href="{{link}}"><img src="{{image}}" /></a>'+
+	                    '<p> <a href="http://instagram.com/{{model.user.username}}"> {{model.user.username}}</a>'+
+	                    ' {{caption}}'+
+	                    '<br /><strong>{{model.location.name}}</strong><br /></p>'+
+	                    '</div>'+
+	                    '</div>'
+	    });
+	feed.run();
+</script>
+
+
+</html>

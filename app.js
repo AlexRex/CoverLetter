@@ -17,7 +17,7 @@ app.get('/controller', function(req, res) {
     res.sendfile(__dirname + '/public/controller/controller.html');
 });
 
-app.use('/static', express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 
 io.on('connection', function(socket) {
