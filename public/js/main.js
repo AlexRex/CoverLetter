@@ -23,7 +23,7 @@
   	  		y: Math.round(data.beta),
   	  		z: Math.round(data.gamma)
   	  	};
-  	  	console.log(info.y);
+  	  	console.log(info);
 
   	  	window.scrollBy(0,info.y/5);
   	  });
