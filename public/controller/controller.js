@@ -16,7 +16,7 @@ socket.on('connect', function(){
 
 function motion(event){
     document.getElementById('instructions').innerHTML = event;
-
+    console.log(event);
     if(connected){
         socket.emit('accel', event);
     }
