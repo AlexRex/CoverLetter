@@ -1,5 +1,5 @@
-var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-//var thisUrl = "http://192.168.1.145:2000/";
+//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+var thisUrl = "http://192.168.1.145:2000/";
 //var thisUrl = "http://172.16.80.185:2000/";
 
 
@@ -28,6 +28,20 @@ function motion(event){
     if(connected){
         socket.emit('accel', data);
     }
+}
+
+var shakeEvent = new Shake({threshold: 10});
+
+shakeEvent.start();
+
+window.addEventListener('shake', function(){
+        if(connected)
+            socket.emit('shaked');
+}, false);
+
+//stop listening
+function stopShake(){
+    shakeEvent.stop();
 }
 
 

@@ -1,6 +1,6 @@
 	
-  	var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-  	//var thisUrl = "http://192.168.1.145:2000/";
+  	//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+  	var thisUrl = "http://192.168.1.145:2000/";
     //var thisUrl = "http://172.16.80.185:2000/";
 
 
@@ -17,22 +17,44 @@
 
   	});
   	
-  	  socket.on('getAccel', function (data) {
+	  socket.on('getAccel', function (data) {
   	  //console.log(data);
   	  if($('#qrModal').hasClass('in')){
- 			$('#qrModal').modal('hide');
+  			$('#qrModal').modal('hide');
   	  }
 
-        //console.log(data);
-  	  	var info = {
-  	  		x: Math.round(data.alpha),
-  	  		y: Math.round(data.beta),
-  	  		z: Math.round(data.gamma)
-  	  	};
-  	  	//console.log(info);
+      //console.log(data);
+	  	var info = {
+	  		x: Math.round(data.alpha),
+	  		y: Math.round(data.beta),
+	  		z: Math.round(data.gamma)
+	  	};
+	  	//console.log(info);
 
-  	  	window.scrollBy(0,info.y/5);
-  	  });
+	  	window.scrollBy(0,info.y/5);
+	  });
+
+
+    var introColors = ['#2980b9', '#e67e22'];
+    var aboutColors = ['#34495e', '#c0392b'];
+    var lastProjectsColors = ['#8e44ad', '#16a085'];
+    var todayColors = ['#27ae60', '#f1c40f'];
+    var tomorrowColors = ['#D81B1C', '#2980b9'];
+
+    var actualColor = 0;
+    socket.on('shaked', function(){
+      console.log(introColors[actualColor]);
+      document.getElementById('introduction').style.background = introColors[actualColor];
+      document.getElementById('about-me').style.background = aboutColors[actualColor];
+      document.getElementById('last-projects').style.background = lastProjectsColors[actualColor];
+      document.getElementById('today').style.background = todayColors[actualColor];
+      document.getElementById('tomorrow').style.background = tomorrowColors[actualColor];
+      actualColor++;
+
+      if(actualColor==introColors.length)
+        actualColor=0;
+    });
+
 
 
 

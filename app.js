@@ -51,4 +51,8 @@ io.on('connection', function(socket) {
         
         io.to(sockId).emit('getAccel', data);
     });
+
+    socket.on('shaked', function(data){
+        io.to(sockId).emit('shaked');
+    })
 });
