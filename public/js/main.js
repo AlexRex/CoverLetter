@@ -1,11 +1,15 @@
 	
-  	var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+  	//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
   	//var thisUrl = "http://192.168.1.145:2000/";
+    var thisUrl = "http://172.16.80.185:2000/";
+
 
 	var socket = io.connect(thisUrl);
   	
   	var thisId = ( Math.random() * 100 ) | 0;
   	socket.on('connect', function(){
+      document.getElementById('alert-top').style.transform = "translateY(0px)";
+
   		console.log(thisId);
   		socket.emit('sendId', 1);
   		document.getElementById('qrCode').src = 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl='+thisUrl+'controller?id='+thisId;
@@ -19,7 +23,7 @@
  			$('#qrModal').modal('hide');
   	  }
 
-        console.log(data);
+        //console.log(data);
   	  	var info = {
   	  		x: Math.round(data.alpha),
   	  		y: Math.round(data.beta),
@@ -50,34 +54,54 @@
 
 function initMap() {
 	var styles = [{"featureType":"landscape","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]}];
-	var map;
-	var myLatlng = new google.maps.LatLng(38.382565, -0.513981);
-	var myLatlngCenter = new google.maps.LatLng(45.382565, 5.513981);
+	var mapUA;
+	var myLatlngUA = new google.maps.LatLng(38.382565, -0.513981);
+  var myLatlngCenter = new google.maps.LatLng(48.2782761, 3.4638107);
 
-	map = new google.maps.Map(document.getElementById('UAMap'), {
+	mapUA = new google.maps.Map(document.getElementById('UAMap'), {
 		center: myLatlngCenter,
 		zoom: 4
   	});
 
-	map.setOptions({styles: styles});
+	mapUA.setOptions({styles: styles});
+
+  
+
+  var mapSligo;
+  var myLatlngSligo = new google.maps.LatLng(54.2782761, -8.4638107);
+
+  mapSligo = new google.maps.Map(document.getElementById('SligoMap'), {
+    center: myLatlngCenter,
+    zoom: 4
+    });
+
+  mapSligo.setOptions({styles: styles});
 
 
-
-	var marker = new google.maps.Marker({
-	  position: myLatlng,
+	var markerUA = new google.maps.Marker({
+	  position: myLatlngUA,
 	  title:"University of Alicante, Spain."
 	});
 
 	// To add the marker to the map, call setMap();
-	marker.setMap(map);
+	markerUA.setMap(mapUA);
+
+  var markerSligo = new google.maps.Marker({
+    position: myLatlngSligo,
+    title:"Institute of Technology, Sligo."
+  });
+
+  // To add the marker to the map, call setMap();
+  markerSligo.setMap(mapSligo);
+
 }
 
-$('#UAMapWrapper').click(function () {
-    $('#UAMap').css("pointer-events", "auto");
+$('#UAMapWrapper, #SligoMapWrapper').click(function () {
+    $('#UAMap, #SligoMap').css("pointer-events", "auto");
 });
 
-$( "#UAMapWrapper" ).mouseleave(function() {
-  $('#UAMap').css("pointer-events", "none"); 
+$( "#UAMapWrapper, #SligoMapWrapper" ).mouseleave(function() {
+  $('#UAMap, #SligoMap').css("pointer-events", "none"); 
 });
      
 
@@ -100,7 +124,7 @@ jQuery.fn.loadRepositories = function(username) {
      	
        	var repoLang, repoName, repoDesc, color, card;
 
-       	console.log(repos);
+       	//console.log(repos);
 
           target.empty();
        	$(repos.slice(0,8)).each(function(){
@@ -116,6 +140,8 @@ jQuery.fn.loadRepositories = function(username) {
   							break;
   					case 'Java': color='#1abc9c';
   							break;
+            case 'CSS': color='#563B7E';
+                break;
   					default: color='white';
   							break;
        		    }	
@@ -153,7 +179,7 @@ jQuery.fn.loadRepositories = function(username) {
 
 $(function() {
         $("#githubRepos").loadRepositories("AlexRex");
-    });
+});
 
 
 

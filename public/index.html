@@ -12,7 +12,12 @@
 
 </head>
 <body>
-	<div class="alert alert-info" role="alert">
+<!-- 	<div class="alert alert-info" role="alert">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<strong>Hey ya!</strong> Would you like to control this website with your mobile? <strong><a href="#" onclick="$('#qrModal').modal('show'); $(this).alert('close');">Click here</a></strong>.
+	</div> -->
+
+	<div id="alert-top" class="alert alert-top" role="alert">
 		<button type="button" class="close" data-dismiss="alert">×</button>
 		<strong>Hey ya!</strong> Would you like to control this website with your mobile? <strong><a href="#" onclick="$('#qrModal').modal('show'); $(this).alert('close');">Click here</a></strong>.
 	</div>
@@ -22,10 +27,12 @@
 	</section>
 
 	<section id="about-me">
+		<img class="portrait" src="/public/images/me.png" alt="Photo of myself">
+
 		<h1>This is me</h1>
 		<p>I am a Spanish student enrolled in the Multimedia Engineering Bachelor in the University of Alicante, Spain.</p>
 		<div id="UAMapWrapper">
-			<h2>Actually, here:</h2>
+			<h2>This is actually, here:</h2>
 			<div id="UAMap"></div>
 		</div>
 		<br>
@@ -88,6 +95,11 @@
 	<section id="today">
 		<h1>Today</h1>
 		<p>Now I am in the <strong>Institute of Technology of Sligo, in Ireland</strong>, taking my first semester of the last year with a scholarship. But I almost finished my staying here and I am pursuing to do an internship in Germany for the second semester.</p>
+
+		<div id="SligoMapWrapper">
+			<h2>And this is here:</h2>
+			<div id="SligoMap"></div>
+		</div>
 	</section>
 
 	<section id="tomorrow">
@@ -102,14 +114,19 @@
 	
 
 	<section id="downloads">
-		<h1>My cover letter & resume</h1>
-		<p>Maybe after this you still want to take a look at a standard cover letter and, of course, my resume. <br> You can grab them here: </p>
+		<h1>Formal documents</h1>
+		<p>Maybe after this you still want to take a look at a standard cover letter and, of course, my resume. <br> Also a recommendation letter from one of my former lecturers. <br> You can download them here: </p>
 		<div id="coverLetterDownload">
 			<a href="#" >Cover Letter</a>
+		</div>
+		<div id="recommDownload">
+			<a href="#" >Recommendation Letter</a>
 		</div>
 		<div id="resumeDownload">
 			<a href="#" >Resume</a>
 		</div>
+
+		
 
 	</section>
 

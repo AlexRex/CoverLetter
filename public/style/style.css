@@ -3,11 +3,9 @@
 body, html{
 	padding: 0;
 	margin: 0;
-	width: 100%;
 	background: #e67e22;
 	text-align: center;
 	font-family: 'Open Sans';
-	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -44,15 +42,26 @@ p{
 }
 
 
-.alert{
+.alert-top{
+	position: fixed;
+	z-index: 100;
+	background: rgba(255, 255, 255, 0.97);
+	width: 100%;
 	border-radius: 0;
 	margin-top: 0;
 	margin-bottom: 0;
+	transform: translateY(-100px);
+	-ms-transform: translateY(-100px);
+	-webkit-transform: translateY(-100px);
+
+	-webkit-transition: .5s cubic-bezier(0.42,0,0.01,1); /* Safari */
+	    transition: .5s cubic-bezier(0.42,0,0.01,1);
 }
 
 #qrModal{
 	text-align: center;
 	font-size: 1.2em;
+	word-wrap: break-word;
 }
 
 /* *************************************
@@ -78,6 +87,8 @@ p{
 	margin: 0;
 	width: 100%;
 	background: #34495e;
+	position: relative;
+	z-index: 1;
 }
 
 #UAMapWrapper{
@@ -88,7 +99,7 @@ p{
 #UAMap { 
 	margin: 0 auto;
 	height: 420px;
-	width: 60%;
+	width: 100%;
 
 	margin-top: 50px;
 }
@@ -97,12 +108,23 @@ p{
 	pointer-events: none;
 }
 
-@media (max-width: 560px){
-	#UAMap{
-		width: 260px;
-		height: 280px;
-	}
+
+
+
+
+.portrait{
+	position: absolute;
+	z-index: -1;
+	left: 45%;
+	top: -80px;
+	width: 140px;
+	border: 10px solid white;
+	-ms-transform: rotate(15deg); /* IE 9 */
+    -webkit-transform: rotate(15deg); /* Chrome, Safari, Opera */
+    transform: rotate(15deg);
 }
+
+
 
 .list-inline{
 	max-width: 100%;
@@ -124,7 +146,7 @@ p{
 #studyAreas p{
 	bottom: 0;
 	padding-bottom: 80px;
-	font-size: .7em;
+	font-size: .75em;
 	width: 80%;
 	margin: auto auto;
 	/*border: 1px solid white;
@@ -215,7 +237,21 @@ p{
 	background: #27ae60;
 }
 
+#SligoMapWrapper{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 
+#SligoMap { 
+	margin: 0 auto;
+	height: 420px;
+	width: 100%;
+	margin-top: 50px;
+}
+
+#SligoMap{
+	pointer-events: none;
+}
 
 #tomorrow{
 	background: #D81B1C;
@@ -250,13 +286,17 @@ p{
 	padding: 20px 45px;
 }
 
-#coverLetterDownload, #resumeDownload{
+#recommDownload a{
+	padding: 20px 30px;
+}
+
+#coverLetterDownload, #resumeDownload, #recommDownload{
 	height: 80px;
 	display: inline;
 }
 
-@media (max-width: 480px){
-	#coverLetterDownload, #resumeDownload{
+@media (max-width: 800px){
+	#coverLetterDownload, #resumeDownload, #recommDownload{
 		display: block;
 	}
 }
@@ -272,3 +312,18 @@ p{
      width: 100%;
 }
 
+
+
+@media (max-width: 570px){
+	h1{
+		font-size: 10vw;
+	}
+
+	h2{
+		font-size: 7vw;
+	}
+
+	.portrait{
+		left: 35%;
+	}
+}
