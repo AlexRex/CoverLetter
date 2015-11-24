@@ -1,6 +1,6 @@
 	
-  	var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-  	//var thisUrl = "http://192.168.1.145:2000/";
+  	//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+  	var thisUrl = "http://192.168.1.145:2000/";
     //var thisUrl = "http://172.16.80.185:2000/";
 
 
@@ -10,8 +10,8 @@
   	socket.on('connect', function(){
       document.getElementById('alert-top').style.transform = "translateY(0px)";
 
-  		console.log(thisId);
-  		socket.emit('sendId', 1);
+  		//console.log(thisId);
+  		socket.emit('sendId', thisId);
   		document.getElementById('qrCode').src = 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl='+thisUrl+'controller?id='+thisId;
   		document.getElementById('linkCode').innerHTML += 'Or go to the controller page with your mobile <strong style="font-size:22px;">'+thisUrl+'controller</strong> and use this id: <strong style="font-size:22px;">'+thisId+'</strong>';
 
