@@ -3,6 +3,7 @@ body, html{
 	height: 100%;
 	padding: 0;
 	margin: 0;
+    text-align: center;
 }
 
 #form{
@@ -60,12 +61,14 @@ input{
 }
 
 #instructions{
+    position: absolute;
 	display: none;
 	color: white;
     font-family: 'Quicksand', sans-serif;
 	text-align: center;
 	font-size: 10vh;
 	width: 100%;
+    margin: 0 auto;
 	padding-top: 30%;
 }
 

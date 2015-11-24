@@ -17,10 +17,16 @@ socket.on('connect', function(){
 });
 
 function motion(event){
-    document.getElementById('instructions').innerHTML = event.alpha;
-    console.log(event);
+
+    var data = {
+        alpha: event.alpha,
+        beta: event.beta,
+        gamma: event.gamma
+    };
+
+    //console.log(data);
     if(connected){
-        socket.emit('accel', event);
+        socket.emit('accel', data);
     }
 }
 
