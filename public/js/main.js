@@ -1,17 +1,17 @@
 	
-  	var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
-  	//var thisUrl = "http://192.168.1.145:2000/";
-    //var thisUrl = "http://172.16.80.185:2000/";
+  	//var thisUrl = 'https://protected-crag-6460.herokuapp.com/';
+  	var thisUrl = "http://192.168.1.145:4000/";
+    //var thisUrl = "http://172.16.80.185:4000/";
 
 
 	var socket = io.connect(thisUrl);
   	
   	var thisId = ( Math.random() * 100 ) | 0;
   	socket.on('connect', function(){
-      document.getElementById('alert-top').style.transform = "translateY(0px)";
+      document.getElementById('alert-connect').style.transform = "translateY(0px)";
 
   		//console.log(thisId);
-  		socket.emit('sendId', thisId);
+  		socket.emit('sendId', 1);
   		document.getElementById('qrCode').src = 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl='+thisUrl+'controller?id='+thisId;
   		document.getElementById('linkCode').innerHTML += 'Or go to the controller page with your mobile <strong style="font-size:22px;">'+thisUrl+'controller</strong> and use this id: <strong style="font-size:22px;">'+thisId+'</strong>';
 
@@ -29,21 +29,40 @@
 	  		y: Math.round(data.beta),
 	  		z: Math.round(data.gamma)
 	  	};
-	  	//console.log(info);
+	  	///console.log(info.z);
 
-	  	window.scrollBy(0,info.y/5);
+      //Moving portrait
+      document.getElementById('portrait').style.transform = 'rotate('+info.z+'deg)';
+
+      //scroll
+	  	window.scrollBy(0,info.y/8);
+
+      //alert the shake
+      $(document).scroll(function() {
+          if($(document).scrollTop()>1300){
+            document.getElementById('alert-shake').style.transform = "translateY(0px)";
+          }
+      });
 	  });
+
+    
+
+    function getPercentage(startpos, endpos, currentpos)
+    {
+         var distance = endpos - startpos;
+         var displacement = currentpos - startpos;
+         return (displacement / distance) * 100;
+    }
 
 
     var introColors = ['#2980b9', '#e67e22'];
-    var aboutColors = ['#34495e', '#c0392b'];
+    var aboutColors = ['#34495e', '#22313F'];
     var lastProjectsColors = ['#8e44ad', '#16a085'];
-    var todayColors = ['#27ae60', '#f1c40f'];
+    var todayColors = ['#27ae60', '#c0392b'];
     var tomorrowColors = ['#D81B1C', '#2980b9'];
 
     var actualColor = 0;
     socket.on('shaked', function(){
-      console.log(introColors[actualColor]);
       document.getElementById('introduction').style.background = introColors[actualColor];
       document.getElementById('about-me').style.background = aboutColors[actualColor];
       document.getElementById('last-projects').style.background = lastProjectsColors[actualColor];

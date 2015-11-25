@@ -9,6 +9,7 @@
   },
   "author": "Alex Torres",
   "dependencies": {
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
     "open": "0.0.5",
     "socket.io": "^1.3.7"

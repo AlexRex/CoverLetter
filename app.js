@@ -1,16 +1,25 @@
 var express = require('express');
 var app = express();
+var path = require('path');
+
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var open = require('open');
-server.listen(process.env.PORT || 2000, function() {
+server.listen(process.env.PORT || 4000, function() {
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
+
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'public'));
+
+
 //open('http://localhost:2000');
 
+
 app.get('/', function(req, res) {
-    res.sendfile(__dirname + '/public/index.html');
+    res.render('index', {color: '#D82341', company_name: 'Delivery Hero', company_desc: 'And when I was looking for some enterprises I could not imagine that I would find a startup like Delivery Hero. I got impressed by your innovative way to work and all the leisure and formative services you offer to your employees. Therefore I would like to do an internship in Delivery Hero. I think is the perfect place where I can continue acquiring knowledge and growing as a future engineer and developer. '});
 });
 
 app.get('/controller', function(req, res) {
@@ -54,5 +63,5 @@ io.on('connection', function(socket) {
 
     socket.on('shaked', function(data){
         io.to(sockId).emit('shaked');
-    })
+    });
 });

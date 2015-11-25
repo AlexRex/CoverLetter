@@ -12,22 +12,25 @@
 
 </head>
 <body>
-<!-- 	<div class="alert alert-info" role="alert">
-		<button type="button" class="close" data-dismiss="alert">×</button>
-		<strong>Hey ya!</strong> Would you like to control this website with your mobile? <strong><a href="#" onclick="$('#qrModal').modal('show'); $(this).alert('close');">Click here</a></strong>.
-	</div> -->
 
-	<div id="alert-top" class="alert alert-top" role="alert">
+
+	<div id="alert-connect" class="alert alert-top" role="alert">
 		<button type="button" class="close" data-dismiss="alert">×</button>
-		<strong>Hey ya!</strong> Would you like to control this website with your mobile? <strong><a href="#" onclick="$('#qrModal').modal('show'); $(this).alert('close');">Click here</a></strong>.
+		<p><strong>Hey ya!</strong> Would you like to control this website with your mobile? <strong><a href="#" onclick="$('#qrModal').modal('show'); $(this).alert('close');">Click here</a></strong>.</p>
 	</div>
+
+	<div id="alert-shake" class="alert alert-top" role="alert">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<p><strong>You don't like this colors?</strong> Shake your mobile and change them!</p>
+	</div>
+
 	<section id="introduction">
 		<h1>Hey! I am Alex Torres</h1>
 		<p>I created this interactive cover letter concerning my application for an internship as a Frontend Developer in <span class="company-name">Delivery Hero</span>.</p>
 	</section>
 
 	<section id="about-me">
-		<img class="portrait" src="/public/images/me.png" alt="Photo of myself">
+		<img id="portrait" src="/public/images/me.png" alt="Photo of myself">
 
 		<h1>This is me</h1>
 		<p>I am a Spanish student enrolled in the Multimedia Engineering Bachelor in the University of Alicante, Spain.</p>
@@ -102,9 +105,9 @@
 		</div>
 	</section>
 
-	<section id="tomorrow">
-		<h1>Why Delivery Hero</h1>
-		<p>And when I was looking for some enterprises I could not imagine that I would find a startup like Delivery Hero. I got impressed by your innovative way to work and all the leisure and formative services you offer to your employees. Therefore I would like to do an internship in Delivery Hero. I think is the perfect place where I can continue acquiring knowledge and growing as a future engineer and developer. </p>
+	<section id="tomorrow" style="background:<%= color %>">
+		<h1>Why <%= company_name %></h1>
+		<p><%= company_desc %></p>
 	</section>
 
 	
@@ -129,6 +132,10 @@
 		
 
 	</section>
+
+	<div id="alert-bottom" class="alert alert-bottom" role="alert">
+		<p>You can take a look at this project in my <strong>Github <a href="http://github.com/AlexRex">repository</a>. </strong></p>
+	</div>
 
 
 	<div class="modal fade" id="qrModal">

@@ -43,6 +43,7 @@ p{
 
 
 .alert-top{
+	font-size: .8em;
 	position: fixed;
 	z-index: 100;
 	background: rgba(255, 255, 255, 0.97);
@@ -56,6 +57,16 @@ p{
 
 	-webkit-transition: .5s cubic-bezier(0.42,0,0.01,1); /* Safari */
 	    transition: .5s cubic-bezier(0.42,0,0.01,1);
+}
+
+.alert-bottom{
+	font-size: .8em;
+	z-index: 100;
+	background: rgba(255, 255, 255, 1);
+	width: 100%;
+	border-radius: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 #qrModal{
@@ -112,7 +123,7 @@ p{
 
 
 
-.portrait{
+#portrait{
 	position: absolute;
 	z-index: -1;
 	left: 45%;
@@ -323,7 +334,7 @@ p{
 		font-size: 7vw;
 	}
 
-	.portrait{
+	#portrait{
 		left: 35%;
 	}
 }
