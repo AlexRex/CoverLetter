@@ -19,8 +19,12 @@ app.set('views', path.join(__dirname, 'public'));
 
 
 app.get('/', function(req, res) {
-    res.render('index', {color: '#D82341', company_name: 'Delivery Hero', company_desc: 'And when I was looking for some enterprises I could not imagine that I would find a startup like Delivery Hero. I got impressed by your innovative way to work and all the leisure and formative services you offer to your employees. Therefore I would like to do an internship in Delivery Hero. I think is the perfect place where I can continue acquiring knowledge and growing as a future engineer and developer. '});
+    res.render('index', {company_name: ''});
 });
+
+
+
+
 
 app.get('/controller', function(req, res) {
     res.sendfile(__dirname + '/public/controller/controller.html');

@@ -59,7 +59,7 @@
     var aboutColors = ['#34495e', '#22313F'];
     var lastProjectsColors = ['#8e44ad', '#16a085'];
     var todayColors = ['#27ae60', '#c0392b'];
-    var tomorrowColors = ['#D81B1C', '#2980b9'];
+    var tomorrowColors = [document.getElementById('tomorrow').style.background, '#2980b9'];
 
     var actualColor = 0;
     socket.on('shaked', function(){

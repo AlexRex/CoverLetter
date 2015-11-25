@@ -97,18 +97,22 @@
 
 	<section id="today">
 		<h1>Today</h1>
-		<p>Now I am in the <strong>Institute of Technology of Sligo, in Ireland</strong>, taking my first semester of the last year with a scholarship. But I almost finished my staying here and I am pursuing to do an internship in Germany for the second semester.</p>
+		<p>Now I am in the <strong>Institute of Technology of Sligo, in Ireland</strong>, taking my first semester of the last year with a scholarship.</p>
 
 		<div id="SligoMapWrapper">
 			<h2>And this is here:</h2>
 			<div id="SligoMap"></div>
 		</div>
-	</section>
 
+		<p>But I almost finished my staying here and I am pursuing to do an internship in Germany for the second semester.</p>
+	</section>
+	<% if (company_name.length > 0) { %>
 	<section id="tomorrow" style="background:<%= color %>">
 		<h1>Why <%= company_name %></h1>
-		<p><%= company_desc %></p>
+		<p><%- company_desc %></p>
 	</section>
+
+	<% } %>
 
 	
 
@@ -134,7 +138,7 @@
 	</section>
 
 	<div id="alert-bottom" class="alert alert-bottom" role="alert">
-		<p>You can take a look at this project in my <strong>Github <a href="http://github.com/AlexRex">repository</a>. </strong></p>
+		<p>You can take a look at this project in my <strong>Github <a href="https://github.com/AlexRex/CoverLetter">repository</a>. </strong></p>
 	</div>
 
 
